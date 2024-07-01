@@ -16,24 +16,31 @@
 @prefix time:	<http://www.w3.org/2006/time#> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:	<http://www.w3.org/2001/XMLSchema#> .
+@prefix eli:    <http://data.europa.eu/eli/ontology#>
 
-# Resources section
+# Resources space
+
 <https://publications.europa.eu/resource/authority/data-theme/GOVE> a skos:concept  ;
     skos:prefLabel "Government and public sector" .
 
 <https://www.geonames.org/3175395/italian-republic.html> a dct:Location  ;
     rdfs:Label "Italy"  ;
-    dct:identifier "it" .
+    dct:identifier "italy" .
 
 "Ministero dell'Interno" a dcatapit:Agent , foaf:Organization ;
     dct:identifier "mdi" ;
     foaf:name "Ministero dell'Interno" .
 
+<https://eur-lex.europa.eu/eli/dir/2019/1024/oj> a eli:LegalResource;
+
 
 #Italian Section
 
-# Raw URI and DCAT-AP description of Camera Electoral Open Data recording 2022 Political Elections
-# docs -> https://docs.italia.it/italia/daf/linee-guida-cataloghi-dati-dcat-ap-it/it/stabile/ontologia.html
+
+# docs dcat-ap_it -> https://docs.italia.it/italia/daf/linee-guida-cataloghi-dati-dcat-ap-it/it/stabile/ontologia.html
+# docs dcat_ap
+
+# Raw URI and DCAT-AP description of Camera and Senato Electoral Open Data recording 2022 Political Elections
 
 <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/camera-20220925/Camera_Italia_LivComune.txt> 
     a dcatapit:Dataset , dcat:Dataset ;
@@ -46,6 +53,7 @@
     dct:rightsHolder "";
     dct:accrualPeriodicity "";
     dcat:distribution "" ;
+    dcat:applicableLegislation <https://eur-lex.europa.eu/eli/dir/2019/1024/oj> ;
     dct:spatial <https://www.geonames.org/3175395/italian-republic.html> .
 
 <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/senato-20220925/Senato_Italia_LivComune.txt> 
@@ -59,6 +67,7 @@
     dct:rightsHolder "" ;
     dct:accrualPeriodicity "" ;
     dcat:distribution "" ;
+    dcat:applicableLegislation <https://eur-lex.europa.eu/eli/dir/2019/1024/oj> ;
     dct:spatial <https://www.geonames.org/3175395/italian-republic.html> .
 
 
