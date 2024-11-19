@@ -123,7 +123,7 @@ Italy:
 **Privacy**:
 The only real issue with Italian data is related to municipalities with too few inhabitants, from this dataset it is possible to infer with a high probability voting trends, some cases are evident like Monterone with a population of 34. In general Municipalities with 100 or less inhabitants are 70 in Italy, this can, in fact, represent a major privacy issue that goes against the art. 48 of the Italian Constitution, that protects the privacy of the vote.
 
-> - Ensure that any personal data in the datasets is anonymized to comply with GDPR regulations.
+>- Ensure that any personal data in the datasets is anonymized to comply with GDPR regulations.
 >- Review the legal frameworks governing data privacy in Italy and Russia.
 
 **Licensing**:
