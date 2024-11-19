@@ -2,7 +2,13 @@
 
 ## 1. Introduction
 
-In this project, we examine open data in the public domain for two countries: Italy and Russia. Specifically, we focus on the most recent Italian parliamentary election results and the latest Russian presidential election results. These elections represent the most significant political campaigns in their respective countries.
+In this project, we examine open data in the public domain for two countries: Italy and Russia. Specifically, we focus on the most recent Italian parliamentary election results and the latest Russian Duma (parliamentary) elections. These elections represent significant political campaigns in their respective countries.
+
+Our objectives are:
+
+- To analyze the importance and potential issues surrounding open electoral data.
+- To highlight transparency and ethical concerns in data collection, processing, and publication.
+- To compare practices in both nations while addressing shared challenges.
 
 The objectives of our project involve reflecting on the importance and potential issues surrounding open data in the public domain. Through our research, we aim to elucidate the subsequent aspects:
 
@@ -16,7 +22,15 @@ Through our analysis, we aim to illustrate that open data, while not a panacea, 
 
 ## 2. Scenario
 
-To achieve our objectives, we collect and analyze electoral data with the finest granularity available. For Italy, we found data at the “comune” (roughly translated as municipality) level (\~94,000 entities) on official websites, resulting in a dataset with (\~117594 rows) for Camera dei deputati, (\~117611 rows) for Senato, which makes a few thousand rows for each commune. For Russia, we accessed data at two levels: individual polling stations (\~94,000 entities) and aggregated data by territorial commissions (\~3,000 rows). For consistency and comparability, we primarily focus on the municipality level of granularity.
+To achieve our objectives, we collect and analyze electoral data with the finest granularity available. For Italy, we found data at the “comune” (roughly translated as municipality) level (~94,000 entities) on official websites, resulting in a dataset with (~117,594 rows) for Camera dei deputati and (~117,611 rows) for Senato, which makes a few thousand rows for each commune.
+
+For Russia, we accessed data at two levels:
+
+Polling Stations (УИК): This level (~94,000 entities) represents the finest granularity available, where data includes votes for political parties such as КПРФ (Communist Party) and ЕР (United Russia), as well as voter turnout and total registered voters. Additionally, geographic coordinates (latitude and longitude) for each polling station enable spatial analysis.
+Territorial Commissions: This aggregated level (~3,000 entities) provides summaries of election results across groups of polling stations.
+The Russian dataset was obtained from Sergey Shpilkin, who scraped and preprocessed the data from the official ЦИК website. While ЦИК provides only HTML tables, the processed CSV format allows for easier integration into our analysis.
+
+For consistency and comparability, we primarily focus on the municipality level of granularity where applicable, using polling stations (УИК) as a counterpart to communes in Italy.
 
 Our analysis involves a comprehensive examination of the data to identify anomalies and potential manipulations. We employ statistical methods and data visualization techniques to illustrate our findings. This approach allows us to demonstrate the strengths and limitations of open data in uncovering electoral fraud and promoting transparency.
 
@@ -71,9 +85,41 @@ Similarly, in the Senate folder, additional files include:
 These distinctions might be due to the unique administrative divisions of Valle d'Aosta or some peculiar way of collecting the data they had that made this necessary.
 
 ### Russia Dataset Overview
+Russia Dataset Overview
+Data Source:
+The dataset for the latest Russian parliamentary elections (Duma elections) was derived from data scraped by Sergey Shpilkin, a well-known electoral statistician, from the official ЦИК (Central Election Commission) website. While the official data is provided only in HTML table format, Shpilkin’s preprocessing converted it into CSV files suitable for analysis.
+
+Granularity:
+The data is available at two levels:
+
+Polling Station Level (УИК): Representing approximately 94,000 entities, this is the most granular level. Each row corresponds to a single polling station, capturing detailed election metrics such as voter turnout, total registered voters, and votes for individual political parties.
+Territorial Commission Level: An aggregated view of election data summarized across ~3,000 territorial commissions, grouping multiple polling stations into larger administrative units.
+Data Format:
+The dataset is provided in CSV format, which has been processed to facilitate statistical analysis and visualization.
+
+Columns Description:
+1. "REGION" - Name of the administrative region (e.g., Moscow, Saint Petersburg).
+2. "TERRITORY" - Name of the territorial commission.
+3. "UIK_ID" - Unique identifier for the polling station (УИК).
+4. "REGISTERED_VOTERS" - Total number of registered voters at the polling station.
+5. "TURNOUT" - Total voter turnout at the polling station.
+6. "BLANK_VOTES" - Number of blank votes submitted.
+7. "INVALID_VOTES" - Number of invalid or spoiled votes.
+8. "PARTY_A_VOTES" - Votes for Political Party A (e.g., United Russia).
+9. "PARTY_B_VOTES" - Votes for Political Party B (e.g., Communist Party).
+10. "OTHER_PARTY_VOTES" - Combined votes for all other parties.
+File Structure:
+The dataset is organized into a single CSV file containing polling station-level data. Territorial commission data is summarized within the same file, using aggregation methods.
+
+Notable preprocessing steps include:
+
+Normalization: Ensuring uniformity in naming conventions for regions and territories.
+Data Cleaning: Addressing inconsistencies such as missing values or duplicate entries.
+Derived Columns: Adding calculated metrics such as turnout percentage and vote shares for individual parties.
+The dataset’s structure and granularity allow for robust statistical analysis, including spatial visualization and anomaly detection. By incorporating both polling station and territorial commission levels, we can compare trends across different administrative hierarchies.
 
 **Data Source**:
-The dataset pertains to the latest presidential elections held in Russia in 2024. While the data is theoretically accessible from the Official Russian Government [Election website](http://www.krasnodar.vybory.izbirkom.ru/region/izbirkom?action=show&root=1&tvd=100100339411198&vrn=100100339410030&prver=0&pronetvd=null&region=4&sub_region=4&type=226&report_mode=null), it poses challenges for comprehensive extraction due to website formatting issues and captchas blocking data parsers.
+The dataset pertains to the latest Russian parliamentary elections (Duma elections).  While the data is theoretically accessible from the Official Russian Government [Election website](http://www.krasnodar.vybory.izbirkom.ru/region/izbirkom?action=show&root=1&tvd=100100339411198&vrn=100100339410030&prver=0&pronetvd=null&region=4&sub_region=4&type=226&report_mode=null), it poses challenges for comprehensive extraction due to website formatting issues and captchas blocking data parsers.
 
 **Complications in Data Retrieval**:
 - The data is stored in separate HTML tables for each polling station or 'municipal aggregation'/'territorial commission' of polling stations.
@@ -81,7 +127,9 @@ The dataset pertains to the latest presidential elections held in Russia in 2024
 - Original websites accessible only from Russian IP addresses 
 
 **Data Collection Method**:
-Given the challenges in accessing raw data, a dataset compiled by Russian independent electoral data analyst Ivan Shukshin is utilized for analysis. This dataset was disseminated via the 'Non-elections (rus. Невыборы)' telegram channel and gained widespread attention across Russian and international media platforms.
+To overcome the challenges related to the data collection, we utilized datasets preprocessed and scraped by Sergey Shpilkin, a prominent electoral statistician known for his work in identifying anomalies in Russian elections. Shpilkin's processed CSV files offer a structured and cleaned version of the data, enabling detailed analysis without the technical hurdles associated with direct data extraction from the ЦИК website.
+
+
 
 #### Dataset Composition:
 The dataset consists of multiple .csv files:
@@ -123,18 +171,31 @@ Italy:
 **Privacy**:
 The only real issue with Italian data is related to municipalities with too few inhabitants, from this dataset it is possible to infer with a high probability voting trends, some cases are evident like Monterone with a population of 34. In general Municipalities with 100 or less inhabitants are 70 in Italy, this can, in fact, represent a major privacy issue that goes against the art. 48 of the Italian Constitution, that protects the privacy of the vote.
 
+The only real issue with Italian data is related to municipalities with very few inhabitants. From this dataset, it is possible to infer with a high probability the voting trends of individuals. Some cases are evident, such as Monterone, with a population of just 34. In general, municipalities with 100 or fewer inhabitants number around 70 in Italy. This represents a significant privacy concern, potentially violating Article 48 of the Italian Constitution, which safeguards the secrecy of the vote.
+
+For Russian data, privacy issues are somewhat different. The data at the polling station level (~94,000 entities) includes detailed voting records for small precincts, often serving populations as small as a few hundred voters. In rural or sparsely populated areas, this granularity might allow individuals' voting behavior to be inferred, especially if combined with external information about voter turnout or demographics. This could contravene Russian privacy laws, particularly those outlined in Federal Law No. 152-FZ on Personal Data.
+
+To address these concerns:
+
+Any datasets used must ensure anonymity by removing or aggregating data that could identify individual voters.
+The use of external preprocessed datasets (such as those provided by Sergey Shpilkin) helps mitigate these risks, as they focus on aggregated results and statistical anomalies rather than individual-level data.
+A review of the legal frameworks governing data privacy in both Italy (GDPR compliance) and Russia (Federal Law No. 152-FZ) is essential to ensure ethical and lawful data use.
+
 > - Ensure that any personal data in the datasets is anonymized to comply with GDPR regulations.
 >- Review the legal frameworks governing data privacy in Italy and Russia.
 
 **Licensing**:
 The License in Italy is, unexpectedly, not clear. The platform we used, the one that provides the general dataset for the elections just labels the collection as “Open Data”, on the other hand with a more accurate research we were able to find another page called “dati.gov.it” that contains Electoral data on the municipality and regional level. Each municipality probably released their data in different open data formats on this website, while the eligendo website published the mashup dataset. 
 In “dati.gov.it” we’re able to find a page dedicated to the IODL (Italian Open Data License), our datasets are not explicitly released under this license, but we can infer that they probably are if we consider that both websites are part of the Governement web domain.
+For Russian data, the situation is markedly different. The data provided by the Central Election Commission of the Russian Federation (ЦИК) is technically public but not openly licensed in the conventional sense. 
 
 **Purpose**:
 Italy is a member of the EU and the Open Data release is probably part of the current implementation of the EU directives on this subject.
 In general Italy is considered a democratic country and the release of this kind of data is public interest and in general a fair and good practice.
 
-> Russia:
+In Russia, the purpose of data publication is less transparent and is often influenced by different political and administrative priorities. While the Central Election Commission (ЦИК) publishes electoral data, this release is not necessarily driven by a commitment to transparency or democratic accountability. Instead, the publication may be motivated by procedural requirements or the need to project an image of openness.
+
+However, independent efforts, such as those by Sergey Shpilkin, emphasize the importance of analyzing and interpreting this data to identify electoral anomalies. These analyses aim to enhance transparency and provide insights into the electoral process, often highlighting discrepancies that may indicate irregularities. While the Russian government’s commitment to truly open data practices remains questionable, the availability of this data, even in its constrained form, enables third-party analysis and fosters a limited level of public scrutiny.
 
 # 6. Ethics Analysis
 
@@ -143,6 +204,17 @@ Italy:
 This is a very institutional datasets, related to the most important moment of a functioning democracy, it records a very large audience and the data collection must be as secret and anonymous as possible in full respect of the Italian Constitution. Nevertheless it’s possible to trace and identify some prejudices and biases that affect the way the dataset is designed, the most problematic are related to sex and gender:
 the choice of recording the “gender” of the candidate as a binary variable (M/F) is certainly not free of concerns in an everchanging cultural and social landscape 
 Same goes with the distinction of male voters from the total (we have two columns, one for total votes, the other recording male votes). In this case we need a further task (a simple subtraction) to find the correct number of female voters and yet it’s not justifiable stating that another column would’ve been cumbersome for the dataset. If we always need a further task, why not inferring the total voters number by the sum of male and female voters?
+
+
+As for the Russia's 2021 Duma elections data, several ethica question can be posed such as that of Trustworthiness of Institutions: In a context where democratic institutions are widely questioned, can the data provided by government sources be trusted at face value? How should researchers balance skepticism with the need to work with the available data?
+Furthermore, does engaging with data provided by a state accused of undermining democracy inadvertently legitimize that state’s narrative? Researchers must carefully navigate the ethics of analyzing potentially manipulated datasets without reinforcing government claims of transparency.  
+
+
+On top of that, dealing with such socio-political mechanisms as elections, not only the data and the elections count, but their inamge in the public opinion as well. For Russia's dataset, that leads to further dilemmas for researchers in the context of public perception and misinformation
+- Public Trust: How does the public perceive the credibility of the dataset? Is there a widespread belief that the data is manipulated, and how does this impact civic engagement?
+- Potential for Misuse: Could the dataset be used to spread misinformation, such as selectively highlighting patterns that appear to validate fraudulent results or discredit legitimate opposition?
+
+
 
 **Discrimination**:
 - Ensure that the data does not lead to unfair treatment of any group based on ethnicity, gender, or other factors.
@@ -163,6 +235,29 @@ There’s no real URI because the files are published as downloadable .zip archi
 The provenance is not stated, all we know is that the website is inserted in the government web domain, so it’s at least trustable. 
 
 
+
+Russia (2021 Duma Elections)
+
+While the official data is originally provided in HTML table format, Shpilkin’s preprocessing converted this data into CSV files, making it more suitable for analysis.
+
+Formats:
+
+The dataset is provided in CSV format, a widely-used format that facilitates statistical analysis and interoperability with many tools and software. The use of CSV ensures that the dataset is compatible with various platforms for analysis and visualization. 
+
+
+Metadata:
+
+The metadata in this dataset is limited but essential for understanding its structure. The columns are labeled clearly, and the file includes some derived metrics, such as turnout percentages and vote shares for individual parties. However, detailed metadata regarding the data collection process, sources of potential bias, and the specific methodology used to preprocess and clean the data is not explicitly documented. Users must rely on the dataset’s structure and their own analysis to infer the meanings of various columns and how the data was aggregated.
+
+URI:
+
+The dataset itself does not come with a direct URI, as the data is originally published by the ЦИК in HTML table format and then converted into CSV files by Sergey Shpilkin. To ensure long-term access and stability, we will upload the CSV files to a public repository such as GitHub, from where users can directly access the data via a stable URI.
+
+Provenance:
+
+While the ЦИК is a government institution, the provenance of this dataset is somewhat complex, as it involves external preprocessing. The dataset’s trustworthiness is tied to the reliability of both the ЦИК and Shpilkin’s methods in processing and presenting the data.
+
+
 **Formats**:
 - Discuss the data formats used (e.g., CSV, JSON) and their interoperability.
 
@@ -175,6 +270,11 @@ The provenance is not stated, all we know is that the website is inserted in the
 **Provenance**:
 - Trace the origin and history of the datasets, documenting how they were collected and processed.
 
+
+
+
+
+
 # 8. Sustainability of the Update of the Datasets Over Time
 
 Italy:
@@ -186,5 +286,10 @@ Being the elections clearly positioned in time the website is able to be constan
 
 **Sustainability**:
 - Discuss strategies to ensure the continuous availability and relevance of the data, including regular updates and maintenance.
+
+
+
+
+
 
 # 9. Visualization and Analysis
