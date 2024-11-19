@@ -1,5 +1,5 @@
 @prefix adms:	<http://www.w3.org/ns/adms#> .
-@prefix dcat:	<http://www.w3.org/ns/dcat#> .
+@prefix dcat:	<https://www.w3.org/TR/vocab-dcat-3/#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcatapit:   <http://dati.gov.it/onto/dcatapit> .        
 @prefix dct:    <http://purl.org/dc/terms/> .
@@ -7,6 +7,7 @@
 @prefix foaf:	<http://xmlns.com/foaf/0.1/> .
 @prefix locn:	<http://www.w3.org/ns/locn#> .
 @prefix odrl:	<http://www.w3.org/ns/odrl/2/> .
+@prefix open-vote: <https://github.com/falaimo99/open-voting> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .      
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -16,7 +17,8 @@
 @prefix time:	<http://www.w3.org/2006/time#> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:	<http://www.w3.org/2001/XMLSchema#> .
-@prefix eli:    <http://data.europa.eu/eli/ontology#>
+@prefix eli:    <http://data.europa.eu/eli/ontology#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 # Resources space
 
@@ -27,12 +29,18 @@
     rdfs:Label "Italy"  ;
     dct:identifier "italy" .
 
-"Ministero dell'Interno" a dcatapit:Agent , foaf:Organization ;
+<https://www.interno.gov.it/it> a dcatapit:Agent , foaf:Organization ;
     dct:identifier "mdi" ;
     foaf:name "Ministero dell'Interno" .
 
-<https://eur-lex.europa.eu/eli/dir/2019/1024/oj> a eli:LegalResource;
+<https://eur-lex.europa.eu/eli/dir/2019/1024/oj> a eli:LegalResource .
 
+<https://elezioni.interno.gov.it/> a dcat:DataService ;
+    dcat:endpointURL <https://elezioni.interno.gov.it/> ;
+    dct:title "Eligendo" ;
+    dcat:servesDataset <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/camera-20220925/Camera_Italia_LivComune.txt> ;
+    dcat:servesDataset <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/senato-20220925/Senato_Italia_LivComune.txt> ;
+    dcatap:applicableLegislation <https://eur-lex.europa.eu/eli/dir/2019/1024/oj> .
 
 #Italian Section
 
@@ -42,32 +50,46 @@
 
 # Raw URI and DCAT-AP description of Camera and Senato Electoral Open Data recording 2022 Political Elections
 
+<!-- <distribution_camera> --> a dcat:Distribution ;
+    dcat:accessURL <https://elezionistorico.interno.gov.it/eligendo/opendata.php> ;
+    dcat:byteSize "25318133"^^xsd:nonNegativeInteger ;
+    dcat:compressFormat "zip" ;
+    dcat:downloadURL <https://elezionistorico.interno.gov.it/daithome/documenti/opendata/camera/camera-20220925.zip> .
+
 <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/camera-20220925/Camera_Italia_LivComune.txt> 
     a dcatapit:Dataset , dcat:Dataset ;
     dct:identifier "Camera_Italia_LivComune-20220925";
-    dct:creator "Ministero dell'Interno";
+    dct:creator <https://www.interno.gov.it/it>;
     dct:title "Dati Elettorali Elezioni Politiche Italiane 2022 alla Camera - Escl. Val D'Aosta" ;
     dct:description "Dataset contenente i risultati elettorali delle elezioni politiche italiane del 2022 alla Camera, esclusa la Valle D'Aosta, a livello di singolo candidato" ;
     dct:modified "";
     dcat:theme <https://publications.europa.eu/resource/authority/data-theme/GOVE> ;
-    dct:rightsHolder "";
-    dct:accrualPeriodicity "";
-    dcat:distribution "" ;
+    dct:rightsHolder <https://www.interno.gov.it/it> ;
+    dct:accrualPeriodicity "" ;
+    dcat:distribution <distribution_camera> ;
     dcat:applicableLegislation <https://eur-lex.europa.eu/eli/dir/2019/1024/oj> ;
-    dct:spatial <https://www.geonames.org/3175395/italian-republic.html> .
+    dct:spatial <https://www.geonames.org/3175395/italian-republic.html> ;
+    dcat:contactPoint <elezioni.storico@interno.it> .
+
+<!-- <distribution_senato> --> a dcat:Distribution ;
+    dcat:accessURL <https://elezionistorico.interno.gov.it/eligendo/opendata.php> ;
+    dcat:byteSize "25318133"^^xsd:nonNegativeInteger ;
+    dcat:compressFormat "zip" ;
+    dcat:downloadURL <https://elezionistorico.interno.gov.it/daithome/documenti/opendata/senato/senato-20220925.zip> .
 
 <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/senato-20220925/Senato_Italia_LivComune.txt> 
     a dcatapit:Dataset , dcat:Dataset ;
     dct:identifier "Senato_Italia_LivComune-20220925" ;
-    dct:creator "Ministero dell'Interno";
+    dct:creator <https://www.interno.gov.it/it>;
     dct:title "Dati Elettorali Elezioni Politiche Italiane 2022 alla Senato - Escl. Val D'Aosta" ;
     dct:description "Dataset contenente i risultati elettorali delle elezioni politiche italiane del 2022 al Senato, esclusa la Valle D'Aosta, a livello di singolo candidato" ;
     dct:modified "";
     dcat:theme <https://publications.europa.eu/resource/authority/data-theme/GOVE> ;
-    dct:rightsHolder "" ;
+    dct:rightsHolder <https://www.interno.gov.it/it> ;
     dct:accrualPeriodicity "" ;
-    dcat:distribution "" ;
+    dcat:distribution <distribution_senato> ;
     dcat:applicableLegislation <https://eur-lex.europa.eu/eli/dir/2019/1024/oj> ;
-    dct:spatial <https://www.geonames.org/3175395/italian-republic.html> .
+    dct:spatial <https://www.geonames.org/3175395/italian-republic.html> ;
+    dcat:contactPoint <elezioni.storico@interno.it> .
 
 

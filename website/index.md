@@ -173,6 +173,9 @@ The only real issue with Italian data is related to municipalities with too few 
 
 The only real issue with Italian data is related to municipalities with very few inhabitants. From this dataset, it is possible to infer with a high probability the voting trends of individuals. Some cases are evident, such as Monterone, with a population of just 34. In general, municipalities with 100 or fewer inhabitants number around 70 in Italy. This represents a significant privacy concern, potentially violating Article 48 of the Italian Constitution, which safeguards the secrecy of the vote.
 
+
+Russia:
+
 For Russian data, privacy issues are somewhat different. The data at the polling station level (~94,000 entities) includes detailed voting records for small precincts, often serving populations as small as a few hundred voters. In rural or sparsely populated areas, this granularity might allow individuals' voting behavior to be inferred, especially if combined with external information about voter turnout or demographics. This could contravene Russian privacy laws, particularly those outlined in Federal Law No. 152-FZ on Personal Data.
 
 To address these concerns:
@@ -181,12 +184,24 @@ Any datasets used must ensure anonymity by removing or aggregating data that cou
 The use of external preprocessed datasets (such as those provided by Sergey Shpilkin) helps mitigate these risks, as they focus on aggregated results and statistical anomalies rather than individual-level data.
 A review of the legal frameworks governing data privacy in both Italy (GDPR compliance) and Russia (Federal Law No. 152-FZ) is essential to ensure ethical and lawful data use.
 
-> - Ensure that any personal data in the datasets is anonymized to comply with GDPR regulations.
+The only real issue with Italian data is related to municipalities with very few inhabitants. From this dataset, it is possible to infer with a high probability the voting trends of individuals. Some cases are evident, such as Monterone, with a population of just 34. In general, municipalities with 100 or fewer inhabitants number around 70 in Italy. This represents a significant privacy concern, potentially violating Article 48 of the Italian Constitution, which safeguards the secrecy of the vote.
+
+For Russian data, privacy issues are somewhat different. The data at the polling station level (~94,000 entities) includes detailed voting records for small precincts, often serving populations as small as a few hundred voters. In rural or sparsely populated areas, this granularity might allow individuals' voting behavior to be inferred, especially if combined with external information about voter turnout or demographics. This could contravene Russian privacy laws, particularly those outlined in Federal Law No. 152-FZ on Personal Data.
+
+To address these concerns:
+
+Any datasets used must ensure anonymity by removing or aggregating data that could identify individual voters.
+The use of external preprocessed datasets (such as those provided by Sergey Shpilkin) helps mitigate these risks, as they focus on aggregated results and statistical anomalies rather than individual-level data.
+A review of the legal frameworks governing data privacy in both Italy (GDPR compliance) and Russia (Federal Law No. 152-FZ) is essential to ensure ethical and lawful data use.
+
+>- Ensure that any personal data in the datasets is anonymized to comply with GDPR regulations.
 >- Review the legal frameworks governing data privacy in Italy and Russia.
 
 **Licensing**:
 The License in Italy is, unexpectedly, not clear. The platform we used, the one that provides the general dataset for the elections just labels the collection as “Open Data”, on the other hand with a more accurate research we were able to find another page called “dati.gov.it” that contains Electoral data on the municipality and regional level. Each municipality probably released their data in different open data formats on this website, while the eligendo website published the mashup dataset. 
 In “dati.gov.it” we’re able to find a page dedicated to the IODL (Italian Open Data License), our datasets are not explicitly released under this license, but we can infer that they probably are if we consider that both websites are part of the Governement web domain.
+
+
 For Russian data, the situation is markedly different. The data provided by the Central Election Commission of the Russian Federation (ЦИК) is technically public but not openly licensed in the conventional sense. 
 
 **Purpose**:
@@ -205,6 +220,8 @@ This is a very institutional datasets, related to the most important moment of a
 the choice of recording the “gender” of the candidate as a binary variable (M/F) is certainly not free of concerns in an everchanging cultural and social landscape 
 Same goes with the distinction of male voters from the total (we have two columns, one for total votes, the other recording male votes). In this case we need a further task (a simple subtraction) to find the correct number of female voters and yet it’s not justifiable stating that another column would’ve been cumbersome for the dataset. If we always need a further task, why not inferring the total voters number by the sum of male and female voters?
 
+
+Russia:
 
 As for the Russia's 2021 Duma elections data, several ethica question can be posed such as that of Trustworthiness of Institutions: In a context where democratic institutions are widely questioned, can the data provided by government sources be trusted at face value? How should researchers balance skepticism with the need to work with the available data?
 Furthermore, does engaging with data provided by a state accused of undermining democracy inadvertently legitimize that state’s narrative? Researchers must carefully navigate the ethics of analyzing potentially manipulated datasets without reinforcing government claims of transparency.  
