@@ -1,18 +1,18 @@
 @prefix adms:	<http://www.w3.org/ns/adms#> .
 @prefix dcat:	<https://www.w3.org/TR/vocab-dcat-3/#> .
-@prefix dcatap: <http://data.europa.eu/r5r/> .
-@prefix dcatapit:   <http://dati.gov.it/onto/dcatapit> .        
+@prefix dcatap: <https://semiceu.github.io/DCAT-AP/releases/3.0.0/> .
+@prefix dcatapit:   <http://dati.gov.it/onto/dcatapit> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
 @prefix foaf:	<http://xmlns.com/foaf/0.1/> .
 @prefix locn:	<http://www.w3.org/ns/locn#> .
 @prefix odrl:	<http://www.w3.org/ns/odrl/2/> .
 @prefix open-vote: <https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/DCAT-AP_IT.ttl#> .
-@prefix owl:    <http://www.w3.org/2002/07/owl#> .      
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:	<http://www.w3.org/2004/02/skos/core#> .     
+@prefix skos:	<http://www.w3.org/2004/02/skos/core#> .
 @prefix spdx:	<http://spdx.org/rdf/terms#> .
 @prefix time:	<http://www.w3.org/2006/time#> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
@@ -39,8 +39,6 @@
 <https://elezioni.interno.gov.it/> a dcat:DataService ;
     dcat:endpointURL <https://elezioni.interno.gov.it/> ;
     dct:title "Eligendo" ;
-    dcat:servesDataset <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/camera-20220925/Camera_Italia_LivComune.txt> ;
-    dcat:servesDataset <https://raw.githubusercontent.com/falaimo99/open-voting/main/data/senato-20220925/Senato_Italia_LivComune.txt> ;
     dcatap:applicableLegislation <https://eur-lex.europa.eu/eli/dir/2019/1024/oj> .
 
 #Italian Section
@@ -51,18 +49,17 @@
 
 # Raw URI and DCAT-AP description of Camera and Senato Electoral Open Data recording 2022 Political Elections
 
-open-vote:distribution_camera a dcat:Distribution ;
+<open-vote:distribution_camera> a dcat:Distribution ;
     dct:rights "Eligendo Open Data" ;
     dcat:accessURL <https://elezionistorico.interno.gov.it/eligendo/opendata.php> ;
     dcat:byteSize "25318133"^^xsd:nonNegativeInteger ;
     dcat:compressFormat "zip" ;
-    dcat:downloadURL <https://elezionistorico.interno.gov.it/daithome/documenti/opendata/camera/camera-20220925.zip> ;
+    dcat:downloadURL <https://elezionistorico.interno.gov.it/daithome/documenti/opendata/camera/camera-20220925.zip> .
 
-<https://raw.githubusercontent.com/falaimo99/open-voting/main/data/camera-20220925/Camera_Italia_LivComune.txt> .
-    a dcatapit:Dataset , dcat:Dataset ;
-    dct:identifier "Camera_Italia_LivComune-20220925";
-    dct:creator <https://www.interno.gov.it/it>;
-    dct:publisher <https://www.interno.gov.it/it>;
+<https://raw.githubusercontent.com/falaimo99/open-voting/main/data/camera-20220925/Camera_Italia_LivComune.txt> a dcatapit:Dataset , dcat:Dataset ;
+    dct:identifier "Camera_Italia_LivComune-20220925" ;
+    dct:creator <https://www.interno.gov.it/it> ;
+    dct:publisher <https://www.interno.gov.it/it> ;
     dct:title "Dati Elettorali Elezioni Politiche Italiane 2022 alla Camera - Escl. Val D'Aosta" ;
     dct:description "Dataset contenente i risultati elettorali delle elezioni politiche italiane del 2022 alla Camera, esclusa la Valle D'Aosta, a livello di singolo candidato" ;
     dct:language "it-IT";
@@ -76,14 +73,13 @@ open-vote:distribution_camera a dcat:Distribution ;
     dct:spatial <https://www.geonames.org/3175395/italian-republic.html> ;
     dcat:contactPoint <elezioni.storico@interno.it> .
 
-open-vote:distribution_senato a dcat:Distribution ;
+<open-vote:distribution_senato> a dcat:Distribution ;
     dcat:accessURL <https://elezionistorico.interno.gov.it/eligendo/opendata.php> ;
     dcat:byteSize "25318133"^^xsd:nonNegativeInteger ;
     dcat:compressFormat "zip" ;
     dcat:downloadURL <https://elezionistorico.interno.gov.it/daithome/documenti/opendata/senato/senato-20220925.zip> .
 
-<https://raw.githubusercontent.com/falaimo99/open-voting/main/data/senato-20220925/Senato_Italia_LivComune.txt>
-    a dcatapit:Dataset , dcat:Dataset ;
+<https://raw.githubusercontent.com/falaimo99/open-voting/main/data/senato-20220925/Senato_Italia_LivComune.txt> a dcatapit:Dataset , dcat:Dataset ;
     dct:rights "Eligendo Open Data" ;
     dct:identifier "Senato_Italia_LivComune-20220925" ;
     dct:creator <https://www.interno.gov.it/it>;

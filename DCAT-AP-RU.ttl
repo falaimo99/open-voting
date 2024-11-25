@@ -39,10 +39,7 @@
     dcat:servesDataset <https://t.me/RUElectionData/1721> ;
     dcatap:applicableLegislation <https://en.wikipedia.org/wiki/Elections_in_Russia> .
 
-# Russian dataset metadata
-
-<!-- Distribution information -->
-open-vote:distribution_russia a dcat:Distribution ;
+<open-vote:distribution_russia> a dcat:Distribution ;
     dcat:accessURL <https://t.me/RUElectionData/1721> ;
     dcat:byteSize "8995336"^^xsd:nonNegativeInteger ;
     dcat:compressFormat "csv" ;
@@ -56,6 +53,7 @@ open-vote:distribution_russia a dcat:Distribution ;
     dct:description "Dataset containing polling station-level and territorial commission-level election results for the 2021 Duma elections, including voter turnout, registered voters, and votes for various parties." ;
     dct:modified "2021-12-01T00:00:00Z"^^xsd:dateTime ;
     dcat:theme <https://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dcat:distribution <open-vote:distribution_russia> ;
     dct:rightsHolder <https://www.cikrf.ru/> ;
     dct:source <http://www.cikrf.ru/analog/ediny-den-golosovaniya-2021/kategorii-viborov/vibori-deputatov-gosdumi/> ;
     dct:accrualPeriodicity "irregular" ;

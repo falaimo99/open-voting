@@ -1,6 +1,6 @@
 # Open Voting
 
-## 1. Introduction
+## Introduction
 
 In this project, we examine open data in the public domain for two countries: Italy and Russia. Specifically, we focus on the most recent Italian parliamentary election results and the latest Russian Duma (parliamentary) elections. These elections represent significant political campaigns in their respective countries.
 
@@ -20,9 +20,11 @@ The objectives of our project involve reflecting on the importance and potential
 
 Through our analysis, we aim to illustrate that open data, while not a panacea, is crucial for transparency and accountability in electoral processes.
 
-## 2. Scenario
+## Scenario
 
-To achieve our objectives, we collect and analyze electoral data with the finest granularity available. For Italy, we found data at the “comune” (roughly translated as municipality) level (~94,000 entities) on official websites, resulting in a dataset with (~117,594 rows) for Camera dei deputati and (~117,611 rows) for Senato, which makes a few thousand rows for each commune.
+To achieve our objectives, we collect and analyze electoral data with the finest granularity available. 
+
+For Italy, we found data at the “comune” (roughly translated as municipality) level (~94,000 entities) on official websites, resulting in a dataset with (~117,594 rows) for Camera dei deputati and (~117,611 rows) for Senato, which makes a few thousand rows for each commune.
 
 For Russia, we accessed data at two levels:
 
@@ -35,8 +37,6 @@ For consistency and comparability, we primarily focus on the municipality level 
 Our analysis involves a comprehensive examination of the data to identify anomalies and potential manipulations. We employ statistical methods and data visualization techniques to illustrate our findings. This approach allows us to demonstrate the strengths and limitations of open data in uncovering electoral fraud and promoting transparency.
 
 By the end of this project, we aim to provide a clear understanding of the role of open data in electoral processes, highlighting both its potential and its limitations. This understanding is crucial for developing strategies to enhance transparency and integrity in elections worldwide.
-
-## 3. Original Dataset and Mashup Datasets
 
 ### Italy Dataset Overview
 
@@ -97,7 +97,7 @@ Territorial Commission Level: An aggregated view of election data summarized acr
 Data Format:
 The dataset is provided in CSV format, which has been processed to facilitate statistical analysis and visualization.
 
-Columns Description:
+#### Columns Description:
 1. "REGION" - Name of the administrative region (e.g., Moscow, Saint Petersburg).
 2. "TERRITORY" - Name of the territorial commission.
 3. "UIK_ID" - Unique identifier for the polling station (УИК).
@@ -141,27 +141,7 @@ The dataset consists of multiple .csv files:
 #### Focus and Analysis:
 The primary focus is on the second file (Territorial Commission Level Data) to maintain consistency with the granularity of the Italian dataset. However, a closer examination of the first file (Polling Station Level Data) may be necessary to detect specific anomalies or irregularities.
 
-#### Description of Columns:
-The second file (Territorial Commission Level Data) includes the following columns (in Russian):
-- **region**: Region name
-- **tik**: Territorial commission name
-- **Число избирателей, включенных в список избирателей**: Number of voters included in the voter list
-- **Число избирательных бюллетеней, полученных участковой избирательной комиссией**: Number of ballots received by the precinct election commission
-- **...** (other columns not translated)
-
-# 4. Quality Analysis of the Datasets
-
-**Italy**:
-- **Accuracy**: Validate vote counts, candidate names, and other key data points against official records.
-- **Consistency**: Ensure uniformity in data entry and formatting across communes.
-- **Completeness**: Check that all necessary information is included and that no data points are missing.
-
-**Russia**:
-- **Accuracy**: Compare polling station-level data with aggregated data by territorial commissions to detect discrepancies.
-- **Consistency**: Standardize data formats and entries across polling stations and territorial commissions.
-- **Completeness**: Verify the inclusion of all relevant data points and ensure no omissions.
-
-# 5. Legal Analysis
+## Legal Analysis
 
 Italy:
 
@@ -191,9 +171,6 @@ Any datasets used must ensure anonymity by removing or aggregating data that cou
 The use of external preprocessed datasets (such as those provided by Sergey Shpilkin) helps mitigate these risks, as they focus on aggregated results and statistical anomalies rather than individual-level data.
 A review of the legal frameworks governing data privacy in both Italy (GDPR compliance) and Russia (Federal Law No. 152-FZ) is essential to ensure ethical and lawful data use.
 
->- Ensure that any personal data in the datasets is anonymized to comply with GDPR regulations.
->- Review the legal frameworks governing data privacy in Italy and Russia.
-
 **Licensing**:
 The License in Italy is, unexpectedly, not clear. The platform we used, the one that provides the general dataset for the elections just labels the collection as “Open Data”, on the other hand with a more accurate research we were able to find another page called “dati.gov.it” that contains Electoral data on the municipality and regional level. Each municipality probably released their data in different open data formats on this website, while the eligendo website published the mashup dataset. 
 In “dati.gov.it” we’re able to find a page dedicated to the IODL (Italian Open Data License), our datasets are not explicitly released under this license, but we can infer that they probably are if we consider that both websites are part of the Governement web domain.
@@ -209,7 +186,7 @@ In Russia, the purpose of data publication is less transparent and is often infl
 
 However, independent efforts, such as those by Sergey Shpilkin, emphasize the importance of analyzing and interpreting this data to identify electoral anomalies. These analyses aim to enhance transparency and provide insights into the electoral process, often highlighting discrepancies that may indicate irregularities. While the Russian government’s commitment to truly open data practices remains questionable, the availability of this data, even in its constrained form, enables third-party analysis and fosters a limited level of public scrutiny.
 
-# 6. Ethics Analysis
+## Ethics Analysis
 
 Italy:
 
@@ -228,18 +205,7 @@ On top of that, dealing with such socio-political mechanisms as elections, not o
 - Public Trust: How does the public perceive the credibility of the dataset? Is there a widespread belief that the data is manipulated, and how does this impact civic engagement?
 - Potential for Misuse: Could the dataset be used to spread misinformation, such as selectively highlighting patterns that appear to validate fraudulent results or discredit legitimate opposition?
 
-
-
-**Discrimination**:
-- Ensure that the data does not lead to unfair treatment of any group based on ethnicity, gender, or other factors.
-
-**Cognitive Bias**:
-- Identify and mitigate any biases present in the data, especially those related to data collection and reporting.
-
-**Prejudice**:
-- Ensure the data is not used to reinforce existing prejudices or stereotypes.
-
-# 7. Technical Analysis (Formats, Metadata, URI, Provenance)
+## Technical Analysis (Formats, Metadata, URI, Provenance)
 
 Italy:
 
@@ -271,39 +237,36 @@ Provenance:
 
 While the ЦИК is a government institution, the provenance of this dataset is somewhat complex, as it involves external preprocessing. The dataset’s trustworthiness is tied to the reliability of both the ЦИК and Shpilkin’s methods in processing and presenting the data.
 
-
-**Formats**:
-- Discuss the data formats used (e.g., CSV, JSON) and their interoperability.
-
-**Metadata**:
-- Ensure comprehensive metadata is available, describing the structure, source, and characteristics of the data.
-
-**URI**:
-- Discuss the use of Uniform Resource Identifiers to ensure persistent access to the data.
-
-**Provenance**:
-- Trace the origin and history of the datasets, documenting how they were collected and processed.
-
-
-
-
-
-
-# 8. Sustainability of the Update of the Datasets Over Time
+## Sustainability of the Update of the Datasets Over Time
 
 Italy:
 Being the elections clearly positioned in time the website is able to be constantly up to date with all the different elections that take place in Italy each year (the website serves as platform to get data about all kind of elections that take place on national territory).
 
 
-**Update Mechanisms**:
-- Describe the processes for updating the datasets with new information as it becomes available.
 
-**Sustainability**:
-- Discuss strategies to ensure the continuous availability and relevance of the data, including regular updates and maintenance.
+## Visualization and Analysis
 
+Fra writes here
+![turnout_it](./static/turnout_it.png)
+Kolya writes here
+![turnout_ru](./static/turnout_ru.png)
 
+![turnout_grid_ru](./static/turnout_grid_ru.png)
 
+![winning_party_it](./static/winning_party_it.png)
 
+![winning_party_ru](./static/winning_party_ru.png)
 
+![winning_party_grid_ru](./static/winning_party_grid_ru.png)
 
-# 9. Visualization and Analysis
+![opposition_winner_it](./static/opposition_winner_it.png)
+
+![winning_and_opposition_it](./static/winning_and_opposition_it.png)
+
+![winning_and_opposition_ru](./static/winning_and_opposition_ru.png)
+
+## RDF
+
+[Italian RDF](https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/DCAT-AP_IT-IT.ttl)
+
+[Russian RDF](https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/DCAT-AP-RU.ttl)
