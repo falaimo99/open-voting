@@ -149,9 +149,6 @@ The second file (Territorial Commission Level Data) includes the following colum
 - **Число избирательных бюллетеней, полученных участковой избирательной комиссией**: Number of ballots received by the precinct election commission
 - **...** (other columns not translated)
 
-### Mashup Datasets we obtained and managed
-
-
 # 4. Quality Analysis of the Datasets
 
 **Italy**:
@@ -216,14 +213,14 @@ However, independent efforts, such as those by Sergey Shpilkin, emphasize the im
 
 Italy:
 
-This is a very institutional datasets, related to the most important moment of a functioning democracy, it records a very large audience and the data collection must be as secret and anonymous as possible in full respect of the Italian Constitution. Nevertheless it’s possible to trace and identify some prejudices and biases that affect the way the dataset is designed, the most problematic are related to sex and gender:
+These are very institutional datasets, related to the most important moment of a functioning democracy, it records a very large audience and the data collection must be as secret and anonymous as possible in full respect of the Italian Constitution. Nevertheless it’s possible to trace and identify some prejudices and biases that affect the way the dataset is designed, the most problematic are related to sex and gender:
 the choice of recording the “gender” of the candidate as a binary variable (M/F) is certainly not free of concerns in an everchanging cultural and social landscape 
 Same goes with the distinction of male voters from the total (we have two columns, one for total votes, the other recording male votes). In this case we need a further task (a simple subtraction) to find the correct number of female voters and yet it’s not justifiable stating that another column would’ve been cumbersome for the dataset. If we always need a further task, why not inferring the total voters number by the sum of male and female voters?
 
 
 Russia:
 
-As for the Russia's 2021 Duma elections data, several ethica question can be posed such as that of Trustworthiness of Institutions: In a context where democratic institutions are widely questioned, can the data provided by government sources be trusted at face value? How should researchers balance skepticism with the need to work with the available data?
+As for the Russia's 2021 Duma elections data, several ethical question can be posed such as that of trustworthiness of institutions: In a context where democratic institutions are widely questioned, can the data provided by government sources be trusted at face value? How should researchers balance skepticism with the need to work with the available data?
 Furthermore, does engaging with data provided by a state accused of undermining democracy inadvertently legitimize that state’s narrative? Researchers must carefully navigate the ethics of analyzing potentially manipulated datasets without reinforcing government claims of transparency.  
 
 
