@@ -24,9 +24,9 @@ Through our analysis, we aim to illustrate that open data, while not a panacea, 
 
 To achieve our objectives, we collect and analyze electoral data with the finest granularity available. 
 
-For Italy, we found data at the “comune” (roughly translated as municipality) level (~94,000 entities) on official websites, resulting in a dataset with (~117,594 rows) for Camera dei deputati and (~117,611 rows) for Senato, which makes a few thousand rows for each commune.
+For **Italy**, we found data at the “comune” (roughly translated as municipality) level (~94,000 entities) on official websites, resulting in a dataset with (~117,594 rows) for Camera dei deputati and (~117,611 rows) for Senato, which makes a few thousand rows for each commune.
 
-For Russia, we accessed data at two levels:
+For **Russia**, we accessed data at two levels:
 
 Polling Stations (УИК): This level (~94,000 entities) represents the finest granularity available, where data includes votes for political parties such as КПРФ (Communist Party) and ЕР (United Russia), as well as voter turnout and total registered voters. Additionally, geographic coordinates (latitude and longitude) for each polling station enable spatial analysis.
 Territorial Commissions: This aggregated level (~3,000 entities) provides summaries of election results across groups of polling stations.
@@ -143,7 +143,7 @@ The primary focus is on the second file (Territorial Commission Level Data) to m
 
 ## Legal Analysis
 
-Italy:
+**Italy**:
 
 **Privacy**:
 The only real issue with Italian data is related to municipalities with too few inhabitants, from this dataset it is possible to infer with a high probability voting trends, some cases are evident like Monterone with a population of 34. In general Municipalities with 100 or less inhabitants are 70 in Italy, this can, in fact, represent a major privacy issue that goes against the art. 48 of the Italian Constitution, that protects the privacy of the vote.
@@ -151,8 +151,9 @@ The only real issue with Italian data is related to municipalities with too few 
 The only real issue with Italian data is related to municipalities with very few inhabitants. From this dataset, it is possible to infer with a high probability the voting trends of individuals. Some cases are evident, such as Monterone, with a population of just 34. In general, municipalities with 100 or fewer inhabitants number around 70 in Italy. This represents a significant privacy concern, potentially violating Article 48 of the Italian Constitution, which safeguards the secrecy of the vote.
 
 
-Russia:
+**Russia**:
 
+**Privacy**:
 For Russian data, privacy issues are somewhat different. The data at the polling station level (~94,000 entities) includes detailed voting records for small precincts, often serving populations as small as a few hundred voters. In rural or sparsely populated areas, this granularity might allow individuals' voting behavior to be inferred, especially if combined with external information about voter turnout or demographics. This could contravene Russian privacy laws, particularly those outlined in Federal Law No. 152-FZ on Personal Data.
 
 To address these concerns:
@@ -188,14 +189,14 @@ However, independent efforts, such as those by Sergey Shpilkin, emphasize the im
 
 ## Ethics Analysis
 
-Italy:
+**Italy**:
 
 These are very institutional datasets, related to the most important moment of a functioning democracy, it records a very large audience and the data collection must be as secret and anonymous as possible in full respect of the Italian Constitution. Nevertheless it’s possible to trace and identify some prejudices and biases that affect the way the dataset is designed, the most problematic are related to sex and gender:
 the choice of recording the “gender” of the candidate as a binary variable (M/F) is certainly not free of concerns in an everchanging cultural and social landscape 
 Same goes with the distinction of male voters from the total (we have two columns, one for total votes, the other recording male votes). In this case we need a further task (a simple subtraction) to find the correct number of female voters and yet it’s not justifiable stating that another column would’ve been cumbersome for the dataset. If we always need a further task, why not inferring the total voters number by the sum of male and female voters?
 
 
-Russia:
+**Russia**:
 
 As for the Russia's 2021 Duma elections data, several ethical question can be posed such as that of trustworthiness of institutions: In a context where democratic institutions are widely questioned, can the data provided by government sources be trusted at face value? How should researchers balance skepticism with the need to work with the available data?
 Furthermore, does engaging with data provided by a state accused of undermining democracy inadvertently legitimize that state’s narrative? Researchers must carefully navigate the ethics of analyzing potentially manipulated datasets without reinforcing government claims of transparency.  
@@ -207,7 +208,7 @@ On top of that, dealing with such socio-political mechanisms as elections, not o
 
 ## Technical Analysis (Formats, Metadata, URI, Provenance)
 
-Italy:
+**Italy**:
 
 The file extension for the italian dataset is .txt, probably to allow easier interoperability and readability on any machine. The format is a csv that uses semi-columns (;) as separators, this latter choice is odd, because it is not the most common way of separating cells in a csv and can lead to some errors during import and reading in certain analysis context.
 The metadata is scarce and not adequate for a dataset that carries this prominence, it’s not easy to find column descriptions that allow us to immediately understand the content, leading to time consuming inference tasks.
@@ -216,48 +217,59 @@ The provenance is not stated, all we know is that the website is inserted in the
 
 
 
-Russia (2021 Duma Elections)
+**Russia**
 
 While the official data is originally provided in HTML table format, Shpilkin’s preprocessing converted this data into CSV files, making it more suitable for analysis.
 
-Formats:
+**Formats**:
 
 The dataset is provided in CSV format, a widely-used format that facilitates statistical analysis and interoperability with many tools and software. The use of CSV ensures that the dataset is compatible with various platforms for analysis and visualization. 
 
 
-Metadata:
+**Metadata**:
 
 The metadata in this dataset is limited but essential for understanding its structure. The columns are labeled clearly, and the file includes some derived metrics, such as turnout percentages and vote shares for individual parties. However, detailed metadata regarding the data collection process, sources of potential bias, and the specific methodology used to preprocess and clean the data is not explicitly documented. Users must rely on the dataset’s structure and their own analysis to infer the meanings of various columns and how the data was aggregated.
 
-URI:
+**URI**:
 
 The dataset itself does not come with a direct URI, as the data is originally published by the ЦИК in HTML table format and then converted into CSV files by Sergey Shpilkin. To ensure long-term access and stability, we will upload the CSV files to a public repository such as GitHub, from where users can directly access the data via a stable URI.
 
-Provenance:
+**Provenance**:
 
 While the ЦИК is a government institution, the provenance of this dataset is somewhat complex, as it involves external preprocessing. The dataset’s trustworthiness is tied to the reliability of both the ЦИК and Shpilkin’s methods in processing and presenting the data.
 
 ## Sustainability of the Update of the Datasets Over Time
 
-Italy:
+**Italy**:
 Being the elections clearly positioned in time the website is able to be constantly up to date with all the different elections that take place in Italy each year (the website serves as platform to get data about all kind of elections that take place on national territory).
 
-
+**Russia**:
 
 ## Visualization and Analysis
 
-Fra writes here
+To approach the analysis we decided to take a look at the current literature and techniques adopted to identify electoral fraud, a strong reference and inspiration comes from this [paper](https://www.pnas.org/doi/10.1073/pnas.1210722109) (Klimek et al., 2012).
+For Italy we decided to stick to the Camera Elections, being more representative and therefore granular.
+
+The first graph here is an histogram about the turnout in Italy (eligible voters vs actual voters for percentual step). We can observe that the highest spikes are around the 60-70%, reflecting the actual turnout average for 2022 Elections that was around 63%. The shape looks somehow normal and therefore regular and it is probably already a signal of absence of fraud.
+
 ![turnout_it](./static/turnout_it.png)
+
 Kolya writes here
+
 ![turnout_ru](./static/turnout_ru.png)
 
 ![turnout_grid_ru](./static/turnout_grid_ru.png)
+
+Starting from here we take a look at the so called Electoral fingerprint, it is in the end a scatter plot that shows each data point against turnout and vote percentage. The usual approach is to isolate the winning party and take a look at the shape, the more skewed to the top-right angle it is the more there's a risk of fraud. For italy we selected only the most voted one, Fratelli D'Italia (Brothers of Italy) to avoid problems of repetition and noise.
+Higher percentages of turnout and relatively higher votes provide a peculiar shape that will be observed further, the usual interpretation is that to higher turnouts correspond an uncontrolled "stuffing" of the ballot boxes, leading to some data points that have both 100% turnout and 100% votes for the winning party that we can easily infer as impossible.
 
 ![winning_party_it](./static/winning_party_it.png)
 
 ![winning_party_ru](./static/winning_party_ru.png)
 
 ![winning_party_grid_ru](./static/winning_party_grid_ru.png)
+
+In the following graph we can see how it went for the opposition winner in Italy (Democratic Party), we can then checkout, in the subsequent, the winning and the opposition winner in two different colors, allowing us to receive an interesting picture of the election. We can clearly see that the final fingerprint graph looks without many outliers and not so skewed, as we mentioned before this can be a signal that no fraud was enacted in Italy. 
 
 ![opposition_winner_it](./static/opposition_winner_it.png)
 
@@ -266,6 +278,12 @@ Kolya writes here
 ![winning_and_opposition_ru](./static/winning_and_opposition_ru.png)
 
 ## RDF
+
+The following link lead to the produced RDF graphs for the italian and russian datasets, and some linked interesting resources that are connected to them.
+
+In particular for Italy we also pointed to the institutional website that releases open data on every italian election, Eligendo, as a data service and we decided to implement an RDF represantation that takes account of the italian standard for DCATAP.
+
+
 
 [Italian RDF](https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/DCAT-AP_IT-IT.ttl)
 
