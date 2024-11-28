@@ -232,7 +232,7 @@ The metadata in this dataset is limited but essential for understanding its stru
 
 **URI**:
 
-The dataset itself does not come with a direct URI, as the data is originally published by the ЦИК in HTML table format and then converted into CSV files by Sergey Shpilkin. To ensure long-term access and stability, we will upload the CSV files to a public repository such as GitHub, from where users can directly access the data via a stable URI.
+The dataset itself does not come with a direct URI, as the data is originally published by the ЦИК in HTML table format and then converted into CSV files by Sergey Shpilkin. To ensure long-term access and stability, we will upload the CSV files to our public GitHub repository such, from where users can directly access the data via a stable URI.
 
 **Provenance**:
 
@@ -250,11 +250,15 @@ Being the elections clearly positioned in time the website is able to be constan
 To approach the analysis we decided to take a look at the current literature and techniques adopted to identify electoral fraud, a strong reference and inspiration comes from this [paper](https://www.pnas.org/doi/10.1073/pnas.1210722109) (Klimek et al., 2012).
 For Italy we decided to stick to the Camera Elections, being more representative and therefore granular.
 
-The first graph here is an histogram about the turnout in Italy (eligible voters vs actual voters for percentual step). We can observe that the highest spikes are around the 60-70%, reflecting the actual turnout average for 2022 Elections that was around 63%. The shape looks somehow normal and therefore regular and it is probably already a signal of absence of fraud.
+The first graph here is an histogram about the turnout in Italy (eligible voters vs actual voters for percentual step). We can observe that the highest spikes are around the 60-70%, reflecting the actual turnout average for 2022 Elections that was around 63%. The graph looks normally distributed in a bell shape which is probably already a signal of absence of fraud. 
+
+Although we do see some clear asymmetry on the graph, due to having one evident peak, and rather rapid falls on the sides, the assymetry might rather indicate complex socio-demographical factors of the Italian society as well as the political situation at that time, rather than a potential fraud. 
 
 ![turnout_it](./static/turnout_it.png)
 
-Kolya writes here
+The counterpart graph for the Russia's Parlianment 2021 election, looks different. The working hyphothesis is that, in a society without any socio-demographic and political anomalies, we are expecting a symmetrical bell-shape normally distributed graph: most polling stations just randomly happen to host the most popular turnout rate, very few polling stations would randomly get very popular, and very few polling stations would randomly happen to host very few people. In real world the socio-demographic factors make perfect symmetry impossible, but the graph we observing here turns into an almost perfect plateau from ~ 65% to 95% turnout, which looks surprising at least. 
+
+It is also worth noticing that the spikes of the graph don't seem to be random. In fact, we can see that most spikes happen to be positioned at round turnout percentages, which doesn't happen that often naturally either. Let's illustrate this by combining the graph with a scale of integer turnout range
 
 ![turnout_ru](./static/turnout_ru.png)
 
@@ -265,7 +269,15 @@ Higher percentages of turnout and relatively higher votes provide a peculiar sha
 
 ![winning_party_it](./static/winning_party_it.png)
 
+Let's now consider the electoral fingerprint from the Duma elections. Here we will take a look at the fingerprint of the winning party Единая Россия (Edinaya Rossiya / "United Russia") Again, in a perfectly normal social/political/demographic situation we would expect a perfect ellipsis on such plot: the party is expected to get +- their final result on a random polling station, no matter how many people came to this polling station. 
+
+The fact that the ellipsis could be oriented sligtly diagonally could be explained by complex socio-demographic mechanisms in the society (e.g. more politically motivated voters mught gravitate towards one party over another). However, seeing this many data points skewed to the corner of the graph seems very hard to explain by any natural reasons. 
+
+Here too, not only we can see an absolute abnormality of the plot, but also at the very corner we can see a prominent spot with rectangular data patterns around all the round turnout percentages and voting rates, suggesting the data manipulation. 
+
 ![winning_party_ru](./static/winning_party_ru.png)
+
+
 
 ![winning_party_grid_ru](./static/winning_party_grid_ru.png)
 
@@ -274,6 +286,8 @@ In the following graph we can see how it went for the opposition winner in Italy
 ![opposition_winner_it](./static/opposition_winner_it.png)
 
 ![winning_and_opposition_it](./static/winning_and_opposition_it.png)
+
+Let's consider the electoral fingerprints of the winning party at the 2021 Duma election -- Edinaya Rossiya (in blue), and the most successful opposition party at those elections KPRF (Communist Party of the Russian Federation, in red). Here we can see almost perfect vertical symmetry of the votes, suggesting that a huge number of the stations where KFRF lost, coincide with the data points of the highest turnout, where the nature of the data points is hard to explain other than by a large manipulaion of the data points, injecting invented numbers into the data, often at round numbers.
 
 ![winning_and_opposition_ru](./static/winning_and_opposition_ru.png)
 
