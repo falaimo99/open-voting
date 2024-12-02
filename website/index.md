@@ -244,6 +244,7 @@ While the ЦИК is a government institution, the provenance of this dataset is 
 Being the elections clearly positioned in time the website is able to be constantly up to date with all the different elections that take place in Italy each year (the website serves as platform to get data about all kind of elections that take place on national territory).
 
 **Russia**:
+The sustainability of the dataset's updates relies on the availability and continuity of Sergey Shpilkin's Telegram channel as the primary source of the data. Unlike Italy, where the data comes directly from a government-maintained official platform, in Russia, there is no centralized or officially endorsed platform for this data in a usable format. This introduces a potential risk to long-term sustainability if the channel's updates cease or if access to historical data is restricted. Therefore, ensuring periodic archiving of the data from the channel is critical to maintaining the dataset's relevance over time.
 
 ## Visualization and Analysis
 
