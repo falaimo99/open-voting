@@ -1,4 +1,4 @@
-# Open Voting project
+# Open Voting Project
 Repository for the Open Access and Digital Ethics course project, valid for the academic year 2024-2025 at the University of Bologna (DHDK).
 
 ## Authors
