@@ -313,6 +313,7 @@ pre code {
  body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
 	padding: 0 12px;
+	background-color: #f8f8f5;
 }
 
 pre {
@@ -355,11 +356,148 @@ code {
 	page-break-after: always;
 }
 
+h1, h2 {
+	margin-top: 1rem;
+	padding-top: 1rem;
+}
+
+h2 {
+	border-top: 1px solid #4d4d4c;
+}
+
+.divider {
+	height: 2px;
+	background: linear-gradient(to right, #4d4d4c, transparent);
+	margin: 20px 0;
+  }
+  .collapsible {
+	background-color: white;
+	color: #333;
+	cursor: pointer;
+	padding: 0.5rem;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 1.2rem;
+	width: 100%;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	border-bottom: 1px solid #ccc;
+  }
+  .collapsible:hover {
+	background-color: #ddd;
+  }
+  .content {
+	display: block;
+	padding: 0 15px;
+	overflow: hidden;
+	background-color: white;
+  }
+  #progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 5px;
+	background: #4d4d4c;
+	width: 0;
+	z-index: 1000;
+  }
+  .map-container {
+	height: 400px;
+	margin: 20px 0;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+  }
+  .chart-container {
+	width: 100%;
+	max-width: 600px;
+	margin: 20px auto;
+  }
+  .floating-back-to-top {
+	position: fixed;
+	bottom: 1rem;
+	padding: 0;
+	width: 20rem;
+	right: 0;
+	font-size: 1rem;
+	background-color: rgba(0,0,0,0);
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	
+  }
+
+  .floating-back-to-top a {
+	
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	color: #fff;
+	text-decoration: none;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	background-color: white;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	text-align: center;
+
+  }
+
+  
+
+  .floating-back-to-top a:hover {
+	background-color: #1a4d88;
+	color: #fff;
+  }
+
+  nav, .collapsible-wrapper {
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+.collapsible-wrapper {
+	margin-top: 1rem;
+}
+
+  nav h2 {
+	margin-top: 0;
+	font-size: 1.5rem;
+  }
+  nav ul {
+	list-style-type:none;
+	padding: 0;
+  }
+  nav ul li {
+	margin: 10px 0;
+  }
+  nav ul li a {
+	text-decoration: none;
+	font-size: 1rem;
+	transition: color 0.3s ease;
+
+  }
+
+  a {
+	color: #1e2836;
+  }
+
+  a:visited {
+	color:#254062;
+  }
+  nav ul li a:hover {
+	color:cadetblue;
+	text-decoration: underline;
+  }
+
+  
 </style>
+
 <link rel="stylesheet" href="file:///home/owly/repos/open-voting/website/style.css" type="text/css">
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
+	<div id="progress-bar"></div>
+
   <script>
     mermaid.initialize({
       startOnLoad: true,
@@ -368,11 +506,60 @@ code {
           : 'default'
     });
   </script>
-  <p>This report is prepared by Francesco Alaimo and Nikolai Gorbachev, 2024-2025, as part of the course <strong>Open Access and Digital Ethics</strong> at the University of Bologna (DHDK).</p>
-  <p>Our research aims to provide insights into open electoral data, focusing on the Italian parliamentary election results and the Russian Duma elections. We explore the significance of these elections within their respective political landscapes, analyzing the role of data in modern democratic processes.</p>
+
+  <a id="top"></a>
+  <div class="floating-back-to-top">
+  <a href="#top" >↑ Back to Top</a>
+	</div>
   
-<h1 id="open-voting">Open Voting</h1>
-<h2 id="introduction">Introduction</h2>
+
+
+
+	
+
+	<div class="collapsible-wrapper" style="margin-bottom: 1rem;">
+		<button class="collapsible" id="open-voting"
+		style="
+		line-height: 1.2rem;
+		padding-top: 1rem;
+		padding-bottom: 0.8rem
+		"
+		>
+		<div style="font-size: 1.6rem; margin-bottom: 0.8rem; ">Open Voting – Project Report</div>
+		<div style="font-size: 1rem">Francesco Alaimo, Nikolai Gorbachev</div>
+		<div style="font-size: 1rem"></div>
+	</button> 
+		<div class="content" style="
+		border-bottom-left-radius: 0.3rem;
+		border-bottom-right-radius: 0.3rem
+		">
+
+			<p style="color:#4d4d4c; ">Open Voting Project is prepared by Francesco Alaimo and Nikolai Gorbachev, 2024-2025, as part of the course <strong>Open Access and Digital Ethics</strong> at the University of Bologna (DHDK).</p>
+		<p style="color:#4d4d4c;">Our research aims to provide insights into open electoral data, focusing on the Italian parliamentary election results and the Russian Duma elections. We explore the significance of these elections within their respective political landscapes, analyzing the role of data in modern democratic processes.</p>
+	
+		</div>
+		</div>
+
+
+<nav>
+	<button class="collapsible" >Table of Contents</button> 
+	<div class="content">
+	<ul>
+	  <li><a href="#introduction">Introduction</a></li>
+	  <li><a href="#scenario">Scenario</a></li>
+	  <li><a href="#legal-analysis">Legal Analysis</a></li>
+	  <li><a href="#ethics-analysis">Ethics Analysis</a></li>
+	  <li><a href="#technical-analysis-formats-metadata-uri-provenance">Technical Analysis (Formats, Metadata, URI, Provenance)</a></li>
+	  <li><a href="#sustainability-of-the-update-of-the-datasets-over-time">Sustainability of the Update of the Datasets Over Time</a></li>
+	  <li><a href="#visualization-and-analysis">Visualization and Analysis</a></li>
+	  <li><a href="#rdf">RDF</a></li>
+	</ul>
+</div>
+  </nav>
+
+<div class="collapsible-wrapper">
+<button class="collapsible" id="introduction">Introduction</button> 
+<div class="content">
 <p>In this project, we examine open data in the public domain for two countries: Italy and Russia. Specifically, we focus on the most recent Italian parliamentary election results and the latest Russian Duma (parliamentary) elections. These elections represent significant political campaigns in their respective countries.</p>
 <p>Our objectives are:</p>
 <ul>
@@ -393,7 +580,13 @@ code {
 </li>
 </ol>
 <p>Through our analysis, we aim to illustrate that open data, while not a panacea, is crucial for transparency and accountability in electoral processes.</p>
-<h2 id="scenario">Scenario</h2>
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+<div class="collapsible-wrapper">
+<button class="collapsible" id="scenario">Scenario</button> 
+<div class="content">
 <p>To achieve our objectives, we collect and analyze electoral data with the finest granularity available.</p>
 <p>For <strong>Italy</strong>, we found data at the “comune” (roughly translated as municipality) level (~94,000 entities) on official websites, resulting in a dataset with (~117,594 rows) for Camera dei deputati and (~117,611 rows) for Senato, which makes a few thousand rows for each commune.</p>
 <p>For <strong>Russia</strong>, we accessed data at two levels:</p>
@@ -496,7 +689,14 @@ To overcome the challenges related to the data collection, we utilized datasets 
 </ol>
 <h4 id="focus-and-analysis">Focus and Analysis:</h4>
 <p>The primary focus is on the second file (Territorial Commission Level Data) to maintain consistency with the granularity of the Italian dataset. However, a closer examination of the first file (Polling Station Level Data) may be necessary to detect specific anomalies or irregularities.</p>
-<h2 id="legal-analysis">Legal Analysis</h2>
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+
+<div class="collapsible-wrapper">
+	<button class="collapsible" id="legal-analysis">Legal Analysis</button> 
+	<div class="content">
 <p><strong>Italy</strong>:</p>
 <p><strong>Privacy</strong>:
 The only real issue with Italian data is related to municipalities with too few inhabitants, from this dataset it is possible to infer with a high probability voting trends, some cases are evident like Monterone with a population of 34. In general Municipalities with 100 or less inhabitants are 70 in Italy, this can, in fact, represent a major privacy issue that goes against the art. 48 of the Italian Constitution, that protects the privacy of the vote.</p>
@@ -523,7 +723,13 @@ Italy is a member of the EU and the Open Data release is probably part of the cu
 In general Italy is considered a democratic country and the release of this kind of data is public interest and in general a fair and good practice.</p>
 <p>In Russia, the purpose of data publication is less transparent and is often influenced by different political and administrative priorities. While the Central Election Commission (ЦИК) publishes electoral data, this release is not necessarily driven by a commitment to transparency or democratic accountability. Instead, the publication may be motivated by procedural requirements or the need to project an image of openness.</p>
 <p>However, independent efforts, such as those by Sergey Shpilkin, emphasize the importance of analyzing and interpreting this data to identify electoral anomalies. These analyses aim to enhance transparency and provide insights into the electoral process, often highlighting discrepancies that may indicate irregularities. While the Russian government’s commitment to truly open data practices remains questionable, the availability of this data, even in its constrained form, enables third-party analysis and fosters a limited level of public scrutiny.</p>
-<h2 id="ethics-analysis">Ethics Analysis</h2>
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+<div class="collapsible-wrapper">
+	<button class="collapsible" id="ethics-analysis">Ethics Analysis</button> 
+	<div class="content">
 <p><strong>Italy</strong>:</p>
 <p>These are very institutional datasets, related to the most important moment of a functioning democracy, it records a very large audience and the data collection must be as secret and anonymous as possible in full respect of the Italian Constitution. Nevertheless it’s possible to trace and identify some prejudices and biases that affect the way the dataset is designed, the most problematic are related to sex and gender:
 the choice of recording the “gender” of the candidate as a binary variable (M/F) is certainly not free of concerns in an everchanging cultural and social landscape
@@ -536,7 +742,13 @@ Furthermore, does engaging with data provided by a state accused of undermining 
 <li>Public Trust: How does the public perceive the credibility of the dataset? Is there a widespread belief that the data is manipulated, and how does this impact civic engagement?</li>
 <li>Potential for Misuse: Could the dataset be used to spread misinformation, such as selectively highlighting patterns that appear to validate fraudulent results or discredit legitimate opposition?</li>
 </ul>
-<h2 id="technical-analysis-formats-metadata-uri-provenance">Technical Analysis (Formats, Metadata, URI, Provenance)</h2>
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+<div class="collapsible-wrapper">
+	<button class="collapsible" id="technical-analysis-formats-metadata-uri-provenance">Technical Analysis (Formats, Metadata, URI, Provenance)</button> 
+	<div class="content">
 <p><strong>Italy</strong>:</p>
 <p>The file extension for the italian dataset is .txt, probably to allow easier interoperability and readability on any machine. The format is a csv that uses semi-columns (;) as separators, this latter choice is odd, because it is not the most common way of separating cells in a csv and can lead to some errors during import and reading in certain analysis context.
 The metadata is scarce and not adequate for a dataset that carries this prominence, it’s not easy to find column descriptions that allow us to immediately understand the content, leading to time consuming inference tasks.
@@ -552,11 +764,27 @@ The provenance is not stated, all we know is that the website is inserted in the
 <p>The dataset itself does not come with a direct URI, as the data is originally published by the ЦИК in HTML table format and then converted into CSV files by Sergey Shpilkin. To ensure long-term access and stability, we will upload the CSV files to our public GitHub repository such, from where users can directly access the data via a stable URI.</p>
 <p><strong>Provenance</strong>:</p>
 <p>While the ЦИК is a government institution, the provenance of this dataset is somewhat complex, as it involves external preprocessing. The dataset’s trustworthiness is tied to the reliability of both the ЦИК and Shpilkin’s methods in processing and presenting the data.</p>
-<h2 id="sustainability-of-the-update-of-the-datasets-over-time">Sustainability of the Update of the Datasets Over Time</h2>
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+
+<div class="collapsible-wrapper">
+	<button class="collapsible" id="sustainability-of-the-update-of-the-datasets-over-time">Sustainability of the Update of the Datasets Over Time</button> 
+	<div class="content">
 <p><strong>Italy</strong>:
 Being the elections clearly positioned in time the website is able to be constantly up to date with all the different elections that take place in Italy each year (the website serves as platform to get data about all kind of elections that take place on national territory).</p>
-<p><strong>Russia</strong>:</p>
-<h2 id="visualization-and-analysis">Visualization and Analysis</h2>
+<p><strong>Russia</strong>:
+	The sustainability of updating datasets over time is heavily reliant on independent data analysts, NGOs, and journalists, as official government sources do not provide easily accessible, consolidated datasets for public use. The official election website only offers data in fragmented forms (e.g., individual HTML tables), which makes regular updates and long-term access cumbersome without external intervention. Independent efforts, like those by Ivan Shukshin and similar initiatives, are crucial in maintaining and updating datasets over time, as they consolidate, parse, and share election data in a structured format. However, the continuity of these efforts depends on the persistence of civil society and access to the raw data from official sources, which can be subject to restrictions or technical hurdles.
+</p>
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+
+<div class="collapsible-wrapper">
+	<button class="collapsible" id="visualization-and-analysis">Visualization and Analysis</button> 
+	<div class="content">
 <p>To approach the analysis we decided to take a look at the current literature and techniques adopted to identify electoral fraud, a strong reference and inspiration comes from this <a href="https://www.pnas.org/doi/10.1073/pnas.1210722109">paper</a> (Klimek et al., 2012).
 For Italy we decided to stick to the Camera Elections, being more representative and therefore granular.</p>
 <p>The first graph here is an histogram about the turnout in Italy (eligible voters vs actual voters for percentual step). We can observe that the highest spikes are around the 60-70%, reflecting the actual turnout average for 2022 Elections that was around 63%. The graph looks normally distributed in a bell shape which is probably already a signal of absence of fraud.</p>
@@ -579,11 +807,58 @@ Higher percentages of turnout and relatively higher votes provide a peculiar sha
 <p><img src="./static/winning_and_opposition_it.png" alt="winning_and_opposition_it"></p>
 <p>Let's consider the electoral fingerprints of the winning party at the 2021 Duma election -- Edinaya Rossiya (in blue), and the most successful opposition party at those elections KPRF (Communist Party of the Russian Federation, in red). Here we can see almost perfect vertical symmetry of the votes, suggesting that a huge number of the stations where KFRF lost, coincide with the data points of the highest turnout, where the nature of the data points is hard to explain other than by a large manipulaion of the data points, injecting invented numbers into the data, often at round numbers.</p>
 <p><img src="./static/winning_and_opposition_ru.png" alt="winning_and_opposition_ru"></p>
-<h2 id="rdf">RDF</h2>
+<p>Complete Jupyter Notebooks following the performed data analysis</p>
+<p><a href="https://github.com/falaimo99/open-voting/blob/main/analysis/it_datasets_analysis.ipynb">Italian Elections Dataset</a></p>
+<p><a href="https://github.com/falaimo99/open-voting/blob/main/analysis/ru_datasets_analysis.ipynb">Russian Elections Dataset</a></p>
+
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+<div class="collapsible-wrapper" style="margin-bottom: 3rem;">
+	<button class="collapsible" id="rdf">RDF</button> 
+	<div class="content">
 <p>The following link lead to the produced RDF graphs for the italian and russian datasets, and some linked interesting resources that are connected to them.</p>
 <p>In particular for Italy we also pointed to the institutional website that releases open data on every italian election, Eligendo, as a data service and we decided to implement an RDF represantation that takes account of the italian standard for DCATAP.</p>
-<p><a href="https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/DCAT-AP_IT-IT.ttl">Italian RDF</a></p>
-<p><a href="https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/DCAT-AP-RU.ttl">Russian RDF</a></p>
+<p><a href="https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/rdf/DCAT-AP_IT-IT.ttl">Italian RDF</a></p>
+<p><a href="https://raw.githubusercontent.com/falaimo99/open-voting/refs/heads/main/rdf/DCAT-AP-RU.ttl">Russian RDF</a></p>
 
+<a href="#top" class="back-to-top">Back to the Top ↑</a>
+</div>
+</div>
+
+<script>
+	 // Collapsible sections
+	 const collapsibles = document.querySelectorAll(".collapsible");
+	 collapsibles.forEach(button => {
+	   button.addEventListener("click", () => {
+		 button.classList.toggle("active");
+		 const content = button.nextElementSibling;
+		 if (content.style.display !== "none") {
+		   content.style.display = "none";
+		   button.style["border-bottom-left-radius"] = "0.5rem"
+		   button.style["border-bottom-right-radius"] = "0.5rem"
+		   button.style["border-bottom"] = "none"
+		 } else {
+		   content.style.display = "block";
+		   button.style["border-bottom-left-radius"] = 0
+		   button.style["border-bottom-right-radius"] = 0
+		   button.style["border-bottom"] = "1px solid #ccc"
+		 }
+	   });
+	 });
+ 
+	 // Progress bar
+	 window.onscroll = () => {
+	   const progressBar = document.getElementById("progress-bar");
+	   const scrollTop = document.documentElement.scrollTop;
+	   const scrollHeight = document.documentElement.scrollHeight;
+	   const clientHeight = document.documentElement.clientHeight;
+	   const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+	   progressBar.style.width = scrollPercentage + "%";
+	 };
+</script>
 </body>
+
+
 </html>
